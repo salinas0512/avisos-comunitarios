@@ -1,0 +1,72 @@
+.btnBasurero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    --background: linear-gradient(to bottom, #a71717 30%, #ca1717 50%, #ea1515 70%);
+   
+}
+.titulo{
+    text-align: left;
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+    margin-left: 5px;
+}
+.imgPredeterminada{
+    width: 120px;
+    float: right;
+    margin-top: 25px;
+}
+.imgPublicacion{
+    width: 120px;
+    float: right;
+    margin-top: 25px;
+    height: 120px;
+}
+.fecha{
+    margin-left: 5px;
+    text-align: left;
+    
+}
+
+ion-modal .btnCancelar{
+    --background: linear-gradient(to right, #474646 30%, #757575 60%, #8b8b8b 75%);
+    --color: white;
+    --border-radius: 15px;
+}  
+.itmModal{
+    text-align: left;
+}
+.pConfirmacion{
+    text-align: center;
+    color: black;
+    font-size: 16px;
+}
+.tituloPublicacion{
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+.tituloConfirmacion{
+    font-size: 20px;
+    margin-left: 5px;
+    
+}
+.btnElimModal{
+   margin-left: 28px;
+   padding-left: 35px;
+   --background: linear-gradient(to right, #a71717 30%, #ca1717 60%, #ea1515 75%);
+}
+.cardModal{
+    border-radius: 10px;
+}
+.toast{
+    --background: linear-gradient(135deg, #800000, #c60a0a, #f95252);
+    --color: #ffffff;  /* Texto blanco */
+    --icon-color: #ffffff;  /* Color del icono */
+    --border-radius: 8px;  /* Bordes redondeados */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra para dar efecto */
+}
+

@@ -1,0 +1,19 @@
+.titulo{
+  text-align: center;
+  font-size: 19px;
+  font-weight: bold;
+  color: black;
+
+}
+.btnAgregarPublicacion {
+  --background: #0c85fd;
+  --font-size:15px ;
+  --color: white;
+  --background-hover : #00BFFF;
+  --margin-right:20px;
+}
+.toolbar{
+  --background: #f4f4f4;
+  --box-shadow: none;
+  --border-bottom: 1px solid #dcdcdc;
+}

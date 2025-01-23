@@ -1,0 +1,23 @@
+<ion-header> 
+  <ion-toolbar class="toolbar">
+   <ion-title  class="titulo">
+    Publicaciones
+   </ion-title> 
+  </ion-toolbar> 
+</ion-header> 
+
+<ion-content>
+  <app-list-publicacion>
+  </app-list-publicacion>
+  
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" aria-hidden="false">
+      <ion-fab-button 
+        size ="small"
+        [routerLink]="['/ingreso-aviso']" 
+        class="btnAgregarPublicacion" 
+        aria-label="Ir a ingreso de aviso"
+        aria-hidden="false">
+        <ion-icon class="agregar" name="add-outline" style="font-size: 23px;" aria-hidden="false"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+</ion-content>

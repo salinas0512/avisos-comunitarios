@@ -1,0 +1,45 @@
+.lblTitulo {
+    font-size: 20px;
+    text-shadow: 0.1px 0.1px #000000;
+}
+
+.lblDescripcion {
+    font-size: 20px;
+    text-shadow: 0.1px 0.1px #000000;
+}
+
+ion-input {
+    --color: #7a7a7a;
+    font-size: 18px;
+}
+
+.btnAgregar {
+    --background: #0c85fd;
+    --font-size: 20px;
+    --color: white;
+    --background-hover: #00BFFF;
+    margin: 0;
+    padding: 0;
+    --border-radius: 4px;
+}
+
+.btnFotografia {
+    --border-radius: 0px;
+    --background: linear-gradient(to right, #474646 30%, #757575 50%, #8b8b8b 70%);
+    --background-actived: #494949;
+    margin-left: -2px;
+    width: 170px;
+}
+.imgFoto {
+    width: 120px;
+    max-width: 100%
+}
+
+
+.toast{
+    --background: linear-gradient(135deg, #004d00, #00b300, #66ff66); /* Degradado verde */
+    --color: #ffffff;  /* Texto blanco */
+    --icon-color: #ffffff;  /* Color del icono */
+    --border-radius: 8px;  /* Bordes redondeados */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra para dar efecto */
+  }

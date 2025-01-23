@@ -1,0 +1,85 @@
+<ion-list class="publicacion">
+  <ion-item *ngFor="let publicacion of publicaciones" class="carta">
+    <div class="contenedor-imagen">
+      <img 
+        *ngIf="publicacion.foto" 
+        [src]="publicacion.foto" 
+        alt="Imagen tomada"
+        class="imgPublicacion" 
+      />
+      </div>
+      <div>
+      <img 
+      *ngIf="!publicacion.foto" 
+      class="imgPredeterminada" 
+      src="assets/images/predeterminada-avisos.png" 
+      alt="Imagen predeterminada" />
+    </div>
+    <ion-label>
+      <h2 class="titulo">{{ publicacion.titulo }}</h2>
+    </ion-label>
+    <ion-label>
+      <p class="fecha">{{ publicacion.fecha | date:'yyyy-MM-dd' }}</p>
+    </ion-label>
+    <ion-button
+        size="small" 
+        class="btnBasurero" 
+        (click)="abrirModal(publicacion)">
+        <ion-icon name="trash-outline" style="font-size: 18px;"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-list>
+
+<!-- Modal de Confirmación -->
+<ion-modal [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar class="toolContainerModal">
+        <ion-title class="tituloConfirmacion">Confirmar eliminación</ion-title>
+        <ion-buttons slot="end">
+          <ion-button class="btnCancelar"(click)="cerrarModal()">Cancelar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-card class="cardModal">
+        <ion-card-header>
+          <ion-card-title class="tituloPublicacion">{{ publicacionAEliminar?.titulo }}</ion-card-title>
+          <ion-card-subtitle>{{ publicacionAEliminar?.descripcion }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{ publicacionAEliminar?.fecha | date: 'yyyy-MM-dd' }}</p>
+
+          <!-- Imagen de la publicación -->
+          <ion-item>
+            <img [src]="publicacionAEliminar?.foto || 'assets/images/predeterminada-avisos.png'" alt="Imagen de la publicación" />
+          </ion-item>
+
+          <p class="pConfirmacion">¿Estás seguro de que deseas eliminar esta publicación?</p>
+
+          <!-- Botones de confirmación -->
+          <ion-item lines="none">
+            <ion-button 
+              class="btnElimModal"
+              shape="round"
+              (click)="eliminarPublicacion()">
+              Eliminar Publicación
+            </ion-button>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- Toast de éxito de eliminación -->
+<ion-toast
+  class="toast"
+  [isOpen]="isToastOpenEliminacion"
+  message="Publicación eliminada con éxito"
+  duration="2000"
+  icon="trash-bin-outline"
+  position="bottom">
+</ion-toast>

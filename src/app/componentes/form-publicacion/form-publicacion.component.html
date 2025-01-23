@@ -1,0 +1,75 @@
+<ion-list>   
+  <!-- Primer item: Input para el título-->
+      <ion-item lines="none" [class.invalid]="tituloInput.invalid && tituloInput.touched">
+        <ion-label position="stacked" class="lblTitulo" for="titulo">Título</ion-label>
+        <ion-input
+          placeholder="Ingrese un título para la publicación"
+          required="required"
+          minlength="5"
+          [(ngModel)]="publicacion.titulo"
+          id="titulo"
+          name="titulo"
+          #tituloInput="ngModel"
+          class="input-cita"
+          [attr.aria-required]="true"
+          [attr.aria-invalid]="tituloInput.invalid ? 'true' : 'false'">
+        </ion-input>
+        <ion-text color="danger" *ngIf="tituloInput.invalid && tituloInput.touched">
+          <p *ngIf="tituloInput.errors?.['required']">El título es obligatorio.</p>
+          <p *ngIf="tituloInput.errors?.['minlength']">El título debe tener al menos 5 caracteres.</p>
+        </ion-text>
+      </ion-item>
+     
+  
+      <!-- Segundo item: Botón para tomar fotografía y previsualización -->
+      <ion-item lines="none" class="itemFoto">
+        <ion-button size="default" class="btnFotografia" (click)="tomarFoto()" [attr.aria-disabled]="false">
+          FOTOGRAFÍA
+          <ion-icon slot="start" name= "camera-outline" style="font-size: 18px;"></ion-icon>
+        </ion-button>
+        <!-- Vista previa de la imagen tomada -->
+        <img *ngIf="publicacion.foto" [src]="publicacion.foto" alt="Previsualización de la fotografía" class="imgFoto">
+      </ion-item>
+  
+      <!-- tercer item: Titulo y Input para la descripcion -->
+      <ion-item lines="none" [class.invalid]="descripcionInput.invalid && descripcionInput.touched">
+        <ion-label position="stacked" class="lblDescripcion" for="descripcion">Descripción</ion-label>
+        <ion-input
+          placeholder="Ingrese la descripción de la publicación"
+          required="required"
+          minlength="20"
+          [(ngModel)]="publicacion.descripcion"
+          id="descripcion"
+          name="descripcion"
+          #descripcionInput="ngModel"
+          [attr.aria-required]="true"
+          [attr.aria-invalid]="descripcionInput.invalid ? 'true' : 'false'">
+        </ion-input>
+        <ion-text color="danger" *ngIf="descripcionInput.invalid && descripcionInput.touched">
+          <p *ngIf="descripcionInput.errors?.['required']">La descripción es obligatoria.</p>
+          <p *ngIf="descripcionInput.errors?.['minlength']">La descripción debe tener al menos 20 caracteres.</p>
+        </ion-text>
+      </ion-item>
+     
+  
+      <ion-item lines="none">
+        <ion-button
+          size="small"
+          [disabled]="!descripcionInput.valid"
+          class="btnAgregar"
+          (click)="agregarPublicacion()"
+          [attr.aria-disabled]="!descripcionInput.valid">
+          GUARDAR
+        </ion-button>
+      </ion-item>
+    </ion-list> 
+   
+     <!-- Toast para mostrar el mensaje de éxito -->
+    <ion-toast
+    class="toast"
+    [isOpen]="isToastOpen"
+    message="Publicación guardada con éxito"
+    duration="2000"
+    icon="checkmark-done-outline"
+    position="bottom">
+    </ion-toast>
